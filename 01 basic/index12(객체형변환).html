@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        var data = [
+            {id: 'abc', title: 'java', age: 20},
+            {id: 'def', title: 'jsp', age: 10},
+            {id: 'ghi', title: 'css', age: 30}
+        ];
+
+        console.log(typeof data);
+
+        //object를 JSON 타입으로 형변환
+        //JSON은 Java Script Object Notation의 약자자
+        var str = JSON.stringify(data);
+        console.log(str);
+        console.log(typeof str);
+
+        //JSON타입을 obj 타입으로 형변환
+        var obj = JSON.parse(str);
+        console.log(obj);
+
+        //parse 함수를 사용할 때 엄격한 규칙이 있다. 키 값을 반드시 ""로 묶어줘야 한다.
+        var obj2 = JSON.parse('{"name" : "홍길동"}');
+        console.log(obj2);
+        
+        
+        
+        
+
+    </script>
+
+</body>
+</html>

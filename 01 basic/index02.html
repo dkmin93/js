@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //동일 변수 선언이 가능하지만 지양할 것것
+        // var num = 10;
+        // var num = 30;
+
+        // console.log(num);
+
+        // var a = '홍길동';
+        // a = '이순신';
+        // console.log(a);
+
+        //데이터 타입
+        var a = 10;
+        var b = '문자열';
+        var c = false;
+
+        var d; //초기화되지 않은 경우
+        var e = document.getElementById("1q32e1"); //null
+        
+        console.log(a,b,c,d,e);
+        
+        console.log(a+d); //숫자+연산할 수 없는 값이 더해지면 Nan이 출력
+
+        //타입 확인
+        console.log(typeof a);
+        console.log(typeof b);
+        console.log(typeof c);
+        console.log(typeof d);
+        console.log(typeof e);
+        
+        //연산자
+        var num1 = "10";
+        var num2 = 10;
+
+        console.log(num1 == num2); //t 2개짜리 연산자는 값만 비교
+        console.log(num1 === num2); // f 3개짜리 연산자는 타입까지 비교교 
+        console.log(num1 != num2); //f
+        console.log(num1 !== num2); //t
+
+        var d; //undefined
+        var e = null; //null
+        
+        console.log(d, e, d == e);
+        console.log(d, e, d === e);
+        
+        
+        
+        
+        
+
+
+
+    </script>
+
+</body>
+</html>
