@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button type="button" id="btn">이벤트리스너 (표준 이벤트)</button>
+
+    <script>
+        var btn = document.getElementById("btn");
+        // btn.addEventListener("click", some); //여기서는 이벤트 앞에 on이 없어야 한다
+
+        // function some() {
+        //     alert("버튼을 클릭함!");
+        // }
+
+        btn.addEventListener("click", function() {alert("버튼을 클릭함!");});
+
+        //이벤트 리스너는 동일한 이벤트를 중복해서 사용할 수 있다.(이벤트 리스너만 가능능)
+        btn.addEventListener("click", function() {alert("또 클릭 이벤트 실행된다!");});
+    </script>
+
+</body>
+</html>

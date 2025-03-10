@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        * {list-style: none;}
+
+    </style>
+
+</head>
+<body>
+    
+    <button type="button" id="my-btn">Query Selector</button>
+    <ul class="box">
+        <li>홍길동</li>
+        <li>이순신</li>
+        <li>박인욱</li>
+    </ul>
+
+    <script>
+
+        //var li = document.querySelector(".box li"); //가장 처음 태그 1개만 가져온다
+        var lis = document.querySelectorAll(".box li");
+
+        var myBtn = document.querySelector("#my-btn");
+
+        myBtn.addEventListener("click", function() {
+            for(var i = 0; i < lis.length; i++) {
+                console.log(lis[i]);
+            }
+        })
+        
+
+    </script>
+
+</body>
+</html>

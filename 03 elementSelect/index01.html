@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    
+
+    <button type="button" id="btn1">체크박스 요소 확인하기</button><br>
+
+    <input type="text" name="inter" value="1">1번<br>
+    <input type="text" name="inter" value="2">2번<br>
+    <input type="text" name="inter" value="3">3번<br>
+    <input type="text" name="inter" value="4">4번<br>
+    <input type="text" name="inter" value="5">5번<br>
+
+    <script>
+        var cks = document.getElementsByName("inter");
+        var btn1 = document.getElementById("btn1");
+        btn1.onclick = function() {
+            //console.log(cks); //항상 리스트로 반환한다
+            for(var i = 0; i < cks.length; i++) {
+                console.log(cks[i]);
+            }
+        }
+    </script>
+
+    <hr>
+
+    <input type="radio" name="radio" class="my-radio">프로그램
+    <input type="radio" name="radio" class="my-radio">디자인
+    <input type="radio" name="radio" class="my-radio">시스템
+
+    <script>
+        var radios = document.getElementsByClassName("my-radio");
+        console.log(radios);
+        for(var i = 0; i < radios.length; i++) {
+                console.log(radios[i]);
+            }
+    </script>
+
+    <hr>
+
+    <h3>DOM 트리의 탐색</h3>
+
+    <!-- 난 위쪽 sel의 옵션 3개만 가져오고 싶은 경우 -->
+    <select id="sel"></select> 
+        <option value="1">a</option>
+        <option value="2">b</option>
+        <option value="3">c</option>
+    
+    <select id="sel2"></select>
+        <option value="1">a</option>
+        <option value="2">b</option>
+        <option value="3">c</option>
+
+    <script>
+        //var options = document.getElementsByTagName("option");
+        //console.log(options);
+
+        var sel = document.getElementById("sel");
+        var options = sel.getElementsByTagName("option");
+        console.log(options);
+        
+        
+    </script>
+
+
+</body>
+</html>
