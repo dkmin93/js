@@ -6,6 +6,9 @@
     <title>Document</title>
 </head>
 <body>
+
+    <h2>할일 삭제와 이동 기능</h2>
+
     <h2>할일 목록 만들기</h2>
     
     <form class="nameForm">
@@ -44,23 +47,88 @@
         var todoButton = todoForm.querySelector("button");
         var todoList = document.querySelector(".todoList");
 
+
         todoButton.onclick = function() {
 
             var li = document.createElement("li");
             var btn = document.createElement("button");
+            var upbtn = document.createElement("button");
+            var downbtn = document.createElement("button");
+            var textnode = document.createTextNode(todo.value + " ");
+            
+            
             btn.innerHTML = "x";
+            upbtn.innerHTML = "↑";  
+            downbtn.innerHTML = "↓";
 
-            li.innerHTML = todo.value;
+            btn.addEventListener("click", function(){del(li);});
+            upbtn.addEventListener("click", function(){up(li);});
+            downbtn.addEventListener("click", function(){down(li);});
+
+
+            li.appendChild(textnode);
             li.appendChild(btn);
-            todo.innerHTML = ""; //공백으로로
-
-
+            li.appendChild(upbtn);
+            li.appendChild(downbtn);
             todoList.appendChild(li); //ul의 자식으로 li
 
+        }
+
+        function del(li) {
+           
+            li.remove();
+       
+        }
+
+        function up(li) {
             
+            if (!li.previousElementSibling) {
             
+                alert("첫 번째 항목입니다.");
+            
+                return;
+            }
+            
+            if (confirm("위로 이동하시겠습니까?")) {
+            
+                todoList.insertBefore(li, li.previousElementSibling);
+            
+                alert("정상적으로 이동되었습니다.");
+            
+            } else {
+            
+                alert("원 상태를 유지합니다.");
+            
+            }
+        }
+
+        function down(li) {
+
+            if (!li.nextElementSiblng) {
+
+                alert("마지막 항목입니다.");
+
+                return;
+
+            }
+
+            if (confirm("아래로 이동하시겠습니까?")) {
+
+                todoList.insertBefore(li.nextElementSiblng, li);
+
+                alert("정상적으로 이동되었습니다.");
+
+            } else {
+
+                alert("원 상태를 유지합니다.");
+
+            }
 
         }
+
+
+        //영상보고 복기
+       
 
     </script>
 

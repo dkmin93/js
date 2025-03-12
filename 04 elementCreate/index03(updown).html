@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table {border-spacing: 0; border-collapse: collapse;}
+        thead th, tbody td {
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <table >
+        <thead>
+            <tr>
+                <th>이동</th>
+                <th>번호</th>
+                <th>이름</th>
+                <th>내용</th>
+                <th>날짜</th>
+            </tr>
+
+        </thead>
+
+        <tbody class="table">
+        <tr>
+            <td><button onclick="down(this)">↓</button><button onclick="up(this)">↑</button></td>
+            <td>1</td>
+            <td>홍길자</td>
+            <td>안녕!</td>
+            <td>2019-01-01</td>
+        </tr>
+        <tr>
+            <td><button onclick="down(this)">↓</button><button onclick="up(this)">↑</button></td>
+            <td>2</td>
+            <td>이순신</td>
+            <td>반가워</td>
+            <td>2019-02-01</td>
+        </tr>
+        <tr>
+            <td><button onclick="down(this)">↓</button><button onclick="up(this)">↑</button></td>
+            <td>3</td>
+            <td>홍길동</td>
+            <td>잘가</td>
+            <td>2019-02-01</td>
+        </tr>
+        <tr>
+            <td><button onclick="down(this)">↓</button><button onclick="up(this)">↑</button></td>
+            <td>4</td>
+            <td>박인욱</td>
+            <td>니가 해봐!</td>
+            <td>2019-02-01</td>
+        </tr>
+        <tr>
+            <td><button onclick="down(this)">↓</button><button onclick="up(this)">↑</button></td>
+            <td>5</td>
+            <td>김철수</td>
+            <td>힝잉잉</td>
+            <td>2019-02-01</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <script>
+
+        function down(node) {
+           
+            //console.log(node);
+            //console.dir(node); 어떤 반환이 나오는지 전부 조회가능
+            
+
+            //가급적이면 Element라는 이름이 붙어 있는걸 쓰는게 좋음
+            //console.log(node.parentElement); //부모 - 정확히 태그만 선택
+            //console.log(node.parentNode); //부모 - 텍스트노드(화이트스페이스) 같은경우도 선택
+            
+            //console.log(node.nextElementSibling); //다음 형제
+            //console.log(node.previousElementSibling); //이전 형제
+
+            //console.log(node.parentElement.children); //td의 자식들
+            //console.log(node.parentElement.children.firstElementChild); //첫번째 자식
+            //console.log(node.parentElement.children.lastElementChild); //마지막 자식
+            
+            //자리 바꾸기
+            var table = document.querySelector(".table"); //tbody
+            var current = node.parentElement.parentElement; //tr
+            var next = current.nextElementSibling; //next tr
+
+            //console.log(current);
+            //console.log(next);
+
+            if(next == null) {
+                alert("마지막행 입니다");
+                return; //함수종료
+            }
+
+            //부모태그.insertBefore(삽입노드, 기준노드);
+            table.insertBefore(next, current);
+
+        }
+
+        function up(node) {
+
+            var table = document.querySelector(".table");
+            var current = node.parentElement.parentElement;
+            var prev = current.previousElementSibling;
+
+            if(prev == null) {
+                alert("첫번째 행 입니다");
+                return;
+            }
+
+            table.insertBefore(current, prev);
+
+        }
+
+    </script>
+
+    <hr>
+
+    <h3>개 쩌는 함수 뜨든! (closest 함수)</h3>
+
+    <div class="a">
+        <div class="b">
+            <div class="c">
+                <div class="d">
+                    <div class="e">딸깍</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        
+        //선택자로 가장 가까운 조상을 선택할 수 있다
+
+        var e = document.querySelector(".e");
+        //console.log(e.parentElement.parentElement.parentElement.parentElement);
+        console.log(e.closest('.a')); //클래스명칭이 a인 조상노드를 찾는다
+        
+        
+    </script>
+
+</body>
+</html>
