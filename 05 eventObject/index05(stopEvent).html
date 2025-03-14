@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>고유 이벤트 중단 (a태그, submit 버튼 태그등은 기본 이벤트를 가진다)</h1>
+
+    <ul class="pages">
+        <li><a href="getList.board">1</a></li>
+        <li><a href="getList.board">2</a></li>
+        <li><a href="getList.board">3</a></li>
+        <li><a href="getList.board">4</a></li>
+    </ul>
+
+    <script>
+
+        var pages = document.querySelector(".pages");
+        
+        pages.onclick = function() {
+
+            //a태그는 기본이동을 이벤트로 가지고 있기 때문
+            event.preventDefault(); //기본이벤트 중단
+
+            if(event.target.tagName != "A") return; //a태그가 아니면 중단
+
+            console.log('a태그 이벤트');
+            
+        };
+
+    </script>
+
+    <hr>
+
+    <form action="https://google.com">
+
+        여백의 미
+        <input type="submit" id="myBtn" value="확인">
+
+    </form>
+
+    <script>
+
+        var myBtn = document.getElementById("myBtn");
+
+        myBtn.onclick = function() {
+
+            event.preventDefault(); //submit의 고유이벤트 중단
+
+        }
+
+    </script>
+    
+
+</body>
+</html>

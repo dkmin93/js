@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    
     <style>
-        ul li {
-            display: inline-block;
-        }
-		table { border-collapse: collapse; border-spacing : 0;}
+        table { border-collapse: collapse; width: 100%; text-align: center;}
         thead th, tbody td {
             border: 1px solid black;
         }
@@ -18,56 +16,62 @@
 </head>
 <body>
     
-    <table>
+    <h3>각 버튼별로 묶어서 각각의 기능을 콘솔로 출력해주세요</h3>
+
+    <table id="mainTable" class="mainTable">
         <thead>
             <tr>
                 <th>번호</th>
-                <th>제목</th>
-                <th>내용</th>
-                <th>삭제</th>
+                <th>과정명</th>
+                <th>담당교수</th>
+                <th>관리</th>
             </tr>
         </thead>
-        <tbody class="list">
+        <tbody class="tableList">
             <tr>
                 <td>1</td>
-                <td>첫글</td>
-                <td>hi</td>
-                <td><button type="button">삭제</button></td>
+                <td>강남응용자바</td>
+                <td>홍길동</td>
+                <td>
+                    <button type="button" class="btn-primary testInfo">시험기본정보</button>
+                    <button type="button" class="btn-danger testInput">시험출제</button>
+                    <button type="button" class="btn-default testResult">시험결과</button>
+                    <button type="button" class="btn-info scoreInfo">성적관리</button>
+                </td>
             </tr>
             <tr>
                 <td>2</td>
-                <td>222첫글</td>
-                <td>hi</td>
-                <td><button type="button">삭제</button></td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>333첫글</td>
-                <td>hi</td>
-                <td><button type="button">삭제</button></td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>444첫글</td>
-                <td>hi</td>
-                <td><button type="button">삭제</button></td>
+                <td>종로응용자바</td>
+                <td>홍길동</td>
+                <td>
+                    <button type="button" class="btn-primary testInfo">시험기본정보</button>
+                    <button type="button" class="btn-danger testInput">시험출제</button>
+                    <button type="button" class="btn-default testResult">시험결과</button>
+                    <button type="button" class="btn-info scoreInfo">성적관리</button>
+                </td>
             </tr>
         </tbody>
     </table>
 
     <script>
 
-        var trow = document.querySelector(".list > tr");
-        var btn = document.querySelector(".list > tr > td > button");
-        var list = document.querySelector(".list");
+        var tableList = document.querySelector(".tableList");
+        
+        tableList.onclick = function() {
+            
+            if(event.target.tagName != "BUTTON") return; //버튼이 아니면 중단
 
-        btn.onclick = function() {
-            if(event.target != "BUTTON") {
-                return;
-                console.log(event);
-                
+            if(event.target.classList.contains("testInfo")) { //시험기본정보
+                console.log('화,목 6교시');  
+            } else if(event.target.classList.contains("testInput")) { //시험출제
+                console.log('swot전략까지');
+            } else if (event.target.classList.contains("testResult")) { //시험결과
+                console.log('K302에서 확인가능');
+            } else if (event.target.classList.contains("scoreInfo")) { //성적관리
+                console.log('이의 있으면 교수실로');
             }
-        }
+
+        };
 
     </script>
 
