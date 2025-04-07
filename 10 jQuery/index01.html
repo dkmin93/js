@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+    
+    <input type="text" id="apple">
+    <input type="text" class="melon">
+    
+
+
+
+
+
+    <script>
+        //$(선택자).함수()
+
+        var a = $("#apple")[0]; //제이쿼리의 init객체
+        //console.log(a);
+
+        var b = document.getElementById("apple"); //바닐라 방식
+        //console.log(b);
+
+        //console.log($("#apple"));
+
+        //val() 값을 얻거나 변경
+        $("#apple").val("hello world"); // value 값 변경
+        var result = $("#apple").val(); // value 값 반환, 변수에 담을 수 있으므로 콘솔로그에서 확인가능
+        console.log(result);
+        
+        $(".melon").val("hello melon");
+        
+        
+        
+    </script>
+
+
+</body>
+</html>

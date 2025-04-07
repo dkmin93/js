@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+    
+    <button type="button" id="getAjax">get 방식 요청</button>
+    <button type="button" id="postAjax">post 방식 요청</button>
+
+    <script>
+        $("#getAjax").click(function() {
+            $.ajax({
+                type:"get", //요청타입
+                url: "http://localhost:8181/api/v1/getData/박인욱/2",
+                success:function(data) {//요청 성공시 실행할 콜백
+                    console.log(data);                
+                },
+                error:function(err, status) {//에러시 동작하는 콜백
+                    console.log(err, status);                   
+                }
+            })
+        });
+
+        $("#postAjax").click(function() {
+            $.ajax({
+                type:"post", //요청타입
+                url: "http://localhost:8181/api/v1/getInfo",
+                data: JSON.stringify({name : "parkinwook", sno:40}),
+                //아무것도 작성하지 않으면 default값은 form타입 이다.
+                contentType: "application/json", //제이슨 타입임을 명시해야함
+                success:function(data) {//요청 성공시 실행할 콜백
+                    console.log(data);                
+                },
+                error:function(err, status) {//에러시 동작하는 콜백
+                    console.log(err, status);                   
+                }
+            })
+        });
+    </script>
+
+</body>
+</html>

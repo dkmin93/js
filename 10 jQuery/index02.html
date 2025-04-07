@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+    
+    <img src="" alt="" class="demo1" width="">
+    <img src="" alt="" class="demo2">
+
+
+    <script>
+        //document.querySelector(".demo1").src = "img/1.jpg";
+        $(".demo1").attr("src", "img/1.jpg"); //src 속성을 변경
+        $(".demo1").attr("width", 100);
+        $(".demo1").attr("art", "이미지1");
+
+        var result = $(".demo1").attr("src"); //src 속성을 얻기
+        console.log(result);
+        
+        //한번에 속성 여러가지 바꾸기
+        $(".demo2").attr({
+            src : "img/2.jpg",
+            alt : "이미지2",
+            width : 200
+        });
+
+    </script>
+
+</body>
+</html>
